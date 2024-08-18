@@ -10,7 +10,7 @@ const productRoutes=require('./routes/productRoutes')
 const path=require('path')
 
 
-const port=4000
+const port=process.env.port || 4000
 dotEnv.config();
 mongoose.connect(process.env.MONGO_URI)
 .then(()=>{
@@ -27,6 +27,6 @@ app.listen(port,()=>{
     console.log(`Server started and running at ${port}`)
 })
 
-app.use('/home',(req,res)=>{
+app.use('/',(req,res)=>{
 res.send("<h1> Welcomee</h1>")
 })
