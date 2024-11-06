@@ -8,10 +8,16 @@ const firmRoutes=require('./routes/firmRoutes')
 const firm=require('./models/Firm')
 const productRoutes=require('./routes/productRoutes')
 const path=require('path')
+const cors=require('cors')
 
 
 const port=process.env.port || 4000
+
+
+
 dotEnv.config();
+app.use(cors())
+
 mongoose.connect(process.env.MONGO_URI)
 .then(()=>{
     console.log("MongoDB connected successfully")
